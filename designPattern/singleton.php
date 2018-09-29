@@ -34,9 +34,12 @@ class Singleton{
         return self::$_redis;
     }
 
+    public function aa(){
+
+    }
 
 }
 
-$redis = Singleton::getInstance()->redis();
-$expire = strtotime(date('Y-m-d') . " 23:59:59") - time();
-$redis->set('aa','bb',$expire);
+//$redis = Singleton::getInstance()->redis();
+////$expire = strtotime(date('Y-m-d') . " 23:59:59") - time();
+//$redis->set('aa','bb',$expire);

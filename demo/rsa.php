@@ -7,7 +7,7 @@
  */
 
 class RsaException extends Exception{
-    public function __construct($message = "", $code = 0, Throwable $previous = null) {
+    public function __construct($message = "", $code = 0) {
         parent::__construct($message, $code);
     }
 }
@@ -52,7 +52,7 @@ class Rsa{
      * 公钥加密
      * @param string $str
      */
-    public function Base64Encrypt($str = ''){
+    public function Base64Encrypt(string $str = ''){
         !empty($str) or self::RsaError('要加密的原始数据为空');
 
         $str = json_encode($str);
@@ -65,7 +65,7 @@ class Rsa{
      * 私钥解密
      * @param string $str
      */
-    public function Base64Decrypt($str = ''){
+    public function Base64Decrypt(string $str = ''){
         !empty($str) or self::RsaError('要解密的数据为空');
 
         $str = base64_decode($str);
@@ -77,8 +77,8 @@ class Rsa{
         echo 'say--'.self::$num.PHP_EOL;
     }
 
-    public static function RsaError($message){
-        throw new RsaException($message);
+    public static function RsaError(string $message, int $code = 0){
+        throw new RsaException($message, $code);
     }
 
 
@@ -95,6 +95,7 @@ try{
 
 }catch (RsaException $e){
     echo $e->getMessage();
+    echo $e->getCode();
 }
 
 

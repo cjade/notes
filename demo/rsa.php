@@ -30,7 +30,8 @@ class Rsa{
      * 单例
      * @return Rsa
      */
-    public static function getInstance(){
+    public static function getInstance()
+    {
         if(!self::$_instance instanceof self){
             $rsa_private_key_path = __DIR__ . '/key/rsa_private_key.pem';
             $rsa_public_key_path  = __DIR__ . '/key/rsa_public_key.pem';
@@ -52,7 +53,8 @@ class Rsa{
      * 公钥加密
      * @param string $str
      */
-    public function Base64Encrypt(string $str = ''){
+    public function Base64Encrypt($str) : string
+    {
         !empty($str) or self::RsaError('要加密的原始数据为空');
 
         $str = json_encode($str);
@@ -65,7 +67,8 @@ class Rsa{
      * 私钥解密
      * @param string $str
      */
-    public function Base64Decrypt(string $str = ''){
+    public function Base64Decrypt(string $str)
+    {
         !empty($str) or self::RsaError('要解密的数据为空');
 
         $str = base64_decode($str);
@@ -77,7 +80,14 @@ class Rsa{
         echo 'say--'.self::$num.PHP_EOL;
     }
 
-    public static function RsaError(string $message, int $code = 0){
+    /**
+     * 抛出异常
+     * @param string $message
+     * @param int $code
+     * @throws RsaException
+     */
+    public static function RsaError(string $message, int $code = 0) : void
+    {
         throw new RsaException($message, $code);
     }
 
@@ -88,10 +98,11 @@ class Rsa{
 
 try{
     $rsa = Rsa::getInstance();
-    $sign = $rsa->Base64Encrypt('😀O(∩_∩)O哈哈~');
+    $arr = [1,2,3];
+    $sign = $rsa->Base64Encrypt($arr);
     echo $sign.PHP_EOL;
     $design = $rsa->Base64Decrypt($sign);
-    echo $design;
+     print_r($design);
 
 }catch (RsaException $e){
     echo $e->getMessage();

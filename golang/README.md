@@ -1,5 +1,5 @@
 1. mkdir bolg
-2. cd mkdir && touch Dockerfile
+2. cd bolg && touch Dockerfile
 3. Dockerfile写入
 ```dockerfile
 FROM golang:latest

@@ -34,3 +34,13 @@ ENTRYPOINT -> 程序入口
 ```dockerfile
 docker build -t bolg .
 ```
+6. docker images 查看创建的镜像
+7.  docker run -p 8080:8080 -d bolg
+  
+  -p   本机端口:镜像端口 
+  
+  -d    后台运行
+  
+8.    本机访问 localhost:8080/zc 返回Hello Docker Form Golang!则成功
+  
+

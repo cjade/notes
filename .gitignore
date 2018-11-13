@@ -6,4 +6,8 @@
 .env
 dump.rdb
 composer.lock
+Mysql/data/*
+Mysql/logs/*
+
 test.php
+

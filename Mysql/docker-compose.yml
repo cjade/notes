@@ -1,0 +1,17 @@
+version: '3'
+services:
+    mysql:
+        image: mysql
+        container_name: "mysql-db"
+        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci #设置utf8字符集
+        restart: always
+        ports:
+            - 3306:3306
+        volumes:
+        - $PWD/config:/etc/mysql
+        - $PWD/logs:/usr/local/mysql/log
+        - $PWD/data:/var/lib/mysql
+        # 环境变量
+        environment:
+            # mysql密码
+            - MYSQL_ROOT_PASSWORD=666666

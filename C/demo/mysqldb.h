@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 #include "/usr/local/Cellar/mysql-connector-c/6.1.11/include/mysql.h"
-void db();
+void db(void);
 void printResult(MYSQL *mysql);
 
 #endif //C_MYSQLDB_H

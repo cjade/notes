@@ -4,7 +4,7 @@
 
 #include "mysqldb.h"
 
-void db()
+void db(void)
 {
     MYSQL mysql;
     MYSQL_RES * result;

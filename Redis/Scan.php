@@ -56,6 +56,7 @@ do{
     $data =  $db->eval("return redis.call('scan','{$cursor}','match','key99*','count',1000)");
     $cursor = $data[0];
     foreach ($data[1] as $v){
+        # code...
         array_push($keys,$v);
     }
 }while($cursor);

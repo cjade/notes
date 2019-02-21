@@ -1,6 +1,6 @@
 <?php
 /**
- * 限流
+ * 简单限流
  * Created by PhpStorm.
  * User: haibao
  * Date: 2019/2/21

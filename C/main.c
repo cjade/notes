@@ -74,19 +74,11 @@ static void  displayProcessTimes(const char *msg){
 
 int main(int argc, char *argv[])
 {
-    int numCalls, j;
-    long tick = sysconf(_SC_CLK_TCK);
-    printf("CLOCKS_PER_SEC= %ld\t sysconf(_SC_CLK_TCK) = %ld",(long)CLOCKS_PER_SEC,tick);
-
-    displayProcessTimes("At program start:\n");
-
-
-    numCalls =  100000000;
-
-    for (j = 0; j < numCalls; j++)
-
-        (void) getppid();
-
-    displayProcessTimes("After getppid() loop:\n");
+    int i = 0;
+    int arr[3] = {0};
+    for (; i <= 3 ; i++) {
+        arr[i] = 0;
+        printf("%p hello world\n",&arr[i]);
+    }
     return 0;
 }

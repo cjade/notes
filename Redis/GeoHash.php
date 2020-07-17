@@ -66,4 +66,11 @@ print_r($company);
 //删除部分元素
 $db->zRem('company','juejin','ireader','meituan');
 
+$ok = $db->set('aa','bab', ['nx','ex'=>5]);
+if($ok){
+    echo 1;
+}else{
+    echo 2;
+}
+
 

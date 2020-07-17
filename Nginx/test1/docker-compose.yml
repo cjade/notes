@@ -1,0 +1,46 @@
+version: '3'
+services:
+
+  app-1:
+    container_name: nginx1
+    image: nginx
+    restart: always
+    volumes:
+      - ./html-01:/usr/share/nginx/html
+    expose:
+      - 80
+    #    command: mvn clean spring-boot:run
+
+  app-2:
+    container_name: nginx2
+    image: nginx
+    restart: always
+    volumes:
+      - ./html-02:/usr/share/nginx/html
+    expose:
+      - 80
+    #    command: mvn clean spring-boot:run
+
+  app-3:
+    container_name: nginx3
+    image: nginx
+    restart: always
+    volumes:
+      - ./html-03:/usr/share/nginx/html
+    expose:
+      - 80
+    #    command: mvn clean spring-boot:run
+
+  nginx:
+    container_name: main-nginx
+    image: nginx
+    restart: always
+    ports:
+      - 80:80
+    #   - 443:443
+    volumes:
+      - ./main-nginx:/etc/nginx
+    links:
+      - app-1
+      - app-2
+      - app-3

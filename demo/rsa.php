@@ -61,7 +61,7 @@ trait Rsa
     {
         extension_loaded('openssl') or self::RsaError('缺少openssl扩展');
         if(empty($priKay)) {
-            $rsa_public_key_path  = __DIR__ . '/key/rsa_private_key.pem';
+            $rsa_private_key_path  = __DIR__ . '/key/rsa_private_key.pem';
             file_exists($rsa_private_key_path) or self::RsaError('私钥不存在');
             $priKay = file_get_contents($rsa_private_key_path);
         }
